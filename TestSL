@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>JSON Test Page</title>
+  <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+	<script>
+	// Replace YOURAPIKEY with appropriate key
+	// Replace ACCOUNT_ID with your ACCOUNT_ID
+	// APIKEY should have access to Read on Account.Category
+	// https://imademo:thisismypass@api.merchantos.com/API/Controls
+
+	$(document).ready(function() {
+        console.log("Start getJSON");
+        $.getJSON( "https://imademo:thisismypass@api.merchantos.com/API/Account/797/Sale", // .json?Callback=?
+//               {emailAddress : 'beauchesne_martin@hotmai.com', name : 'MdlC', header : 'Test Header', subject : 'Test Subject', footer : 'Test Footer'}, 
+                  function( data ) {
+                      $.each( data, function(key, val){
+                          console.log(val);
+                      })
+                      console.log( "Success" );
+                  }, "json");
+//		$.getJSON("https://imademo:thisismypass@api.merchantos.com/API/Account/797/Category.json?callback=?",function() {
+//            console.log( "success" );
+//        })
+//        .done(function() {
+//            console.log( "second success" );
+//        })
+//        .fail(function() {
+//            console.log( "error" );
+//        })
+//        .always(function() {
+//            console.log( "complete" );
+//        });
+        
+    });
+		  
+	</script>
+</head>
+<body>
+	<ul id="categories">
+	</ul>
+</body>
+</html>
